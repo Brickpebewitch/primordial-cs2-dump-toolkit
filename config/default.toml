@@ -1,0 +1,30 @@
+# Default runtime config. Override with config/local.toml (gitignored).
+[target]
+process = "cs2.exe"
+module = "client.dll"
+require_build_guard = true
+
+[host]
+strict = false
+max_parallel_plugins = 1
+
+[plugins.schema_reader]
+enabled = true
+cache_dir = "dumps/.schema_cache"
+max_classes = 4096
+
+[plugins.netvar_scanner]
+enabled = true
+include_arrays = true
+
+[plugins.offset_walker]
+enabled = true
+max_depth = 6
+
+[plugins.sig_scan]
+enabled = false
+signature_file = "config/signatures.txt"
+
+[output]
+format = "json"
+pretty = true
