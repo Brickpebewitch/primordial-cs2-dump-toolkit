@@ -1,0 +1,34 @@
+# Local plugin registry. Overrides entry_points during dev.
+[[plugin]]
+name = "schema_reader"
+module = "plugins.schema_reader.plugin"
+class = "SchemaReader"
+version = "0.6.0"
+api = "1"
+enabled = true
+
+[[plugin]]
+name = "netvar_scanner"
+module = "plugins.netvar_scanner.plugin"
+class = "NetvarScanner"
+version = "0.5.2"
+api = "1"
+requires = ["schema_reader"]
+enabled = true
+
+[[plugin]]
+name = "offset_walker"
+module = "plugins.offset_walker.plugin"
+class = "OffsetWalker"
+version = "0.4.1"
+api = "1"
+enabled = true
+
+[[plugin]]
+name = "sig_scan"
+module = "plugins.sig_scan.plugin"
+class = "SigScan"
+version = "0.3.0"
+api = "1"
+requires = ["offset_walker"]
+enabled = false
